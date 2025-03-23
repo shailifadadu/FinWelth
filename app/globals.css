@@ -126,10 +126,42 @@
 /* Write custom classes */
 @layer utilities {
   .gradient {
-    @apply bg-gradient-to-br from-blue-600 to-purple-600;
+    @apply bg-gradient-to-r text-transparent bg-clip-text;
+    background-size: 300% 100%; /* Ensures smooth animation */
+    background-image: linear-gradient(
+      to right,
+      #3465eb,
+      #47dcf6,
+      #c643ca
+    ); /* Blue → Dark Purple → Light Purple */
+    background-position: 0% 50%;
+    animation: rotateGradient 3s linear infinite;
   }
 
   .gradient-title {
-    @apply gradient font-extrabold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
+    @apply gradient font-extrabold tracking-tighter pr-2 pb-2 drop-shadow-2xl;
   }
+}
+
+@keyframes rotateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-image-wrapper {
+  perspective: 1000px;
+}
+
+.hero-image {
+  transform: rotateX(15deg) scale(1);
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+.hero-image.scrolled {
+  transform: rotateX(0deg) scale(1) translateY(40px);
 }
