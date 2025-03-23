@@ -44,7 +44,7 @@ const HeroSection = () => {
             </Button>
           </Link>
         </div>
-        <div className="hero-image-wrapper">
+        <div className="hero-image-wrapper flex justify-center">
           <div ref={imageRef} className="hero-image">
             <Image
               src="/banner1.jpg"
