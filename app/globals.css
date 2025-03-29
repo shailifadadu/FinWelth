@@ -140,6 +140,14 @@
   .gradient-title {
     @apply gradient font-extrabold tracking-tighter pr-2 pb-2 drop-shadow-2xl;
   }
+
+  .gradient-2 {
+    @apply bg-gradient-to-br from-blue-400 to-purple-800;
+  }
+
+  .gradient-title-2 {
+    @apply gradient-2 font-extrabold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
+  }
 }
 
 @keyframes rotateGradient {

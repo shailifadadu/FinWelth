@@ -52,3 +52,41 @@ export async function updateDefaultAccount(accountId) {
     return { success: false, error: error.message };
   }
 }
+
+//create server action to fetch the account details
+export async function getAccountWithTransactions(accountId) {
+  //First Verify the user
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  //Then find particular account
+  const account = await db.account.findUnique({
+    where: {
+      id: accountId,
+      userId: user.id,
+    },
+    include: {
+      transactions: {
+        orderBy: { date: "desc" },
+      },
+      _count: {
+        select: { transactions: true },
+      },
+    },
+  });
+
+  if (!account) return null;
+
+  return {
+    ...serializeTransaction(account), //It converts all the decimals into numbers
+    transactions: account.transactions.map(serializeTransaction),
+  };
+}
