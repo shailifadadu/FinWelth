@@ -22,11 +22,12 @@ async function DashboardPage() {
   return (
     <div className="space-y-8">
       {/* Budget Progress */}
-      <BudgetProgress
-        initialBudget={budgetData?.budget}
-        currentExpenses={budgetData?.currentExpenses || 0}
-      />
-
+      {defaultAccount && (
+        <BudgetProgress
+          initialBudget={budgetData?.budget}
+          currentExpenses={budgetData?.currentExpenses || 0}
+        />
+      )}
       {/* Overview */}
 
       {/* Accounts Grid */}
