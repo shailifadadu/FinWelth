@@ -1,10 +1,10 @@
-import { inngest } from "@/lib/inngest/client";
 import {
-  checkBudgetAlerts,
+  generateMonthlyReports,
   processRecurringTransaction,
   triggerRecurringTransactions,
-  generateMonthlyReports,
-} from "@/lib/inngest/functions";
+} from "@/app/lib/inngest/functions";
+import { inngest } from "@/lib/inngest/client";
+import { checkBudgetAlerts } from "@/lib/inngest/functions";
 import { serve } from "inngest/next";
 
 // Create an API that serves zero functions
