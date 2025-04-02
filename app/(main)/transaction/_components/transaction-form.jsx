@@ -23,7 +23,7 @@ import useFetch from "@/hooks/use-fetch";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { CalendarIcon, Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { ReceiptScanner } from "./receipt-scanner";
@@ -36,7 +36,7 @@ const AddTransactionForm = ({
   initialData = null,
 }) => {
   const router = useRouter();
-  const searchParams = userSearchParams();
+  const searchParams = useSearchParams();
   const editId = searchParams.get("edit");
 
   const {
@@ -132,9 +132,10 @@ const AddTransactionForm = ({
   };
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {/* Receipt Scanner - Only show in create mode */}
       {!editMode && <ReceiptScanner onScanComplete={handleScanComplete} />}
+
       {/* Type */}
       <div className="space-y-2">
         <label className="text-sm font-medium">Type</label>
@@ -145,7 +146,7 @@ const AddTransactionForm = ({
           <SelectTrigger>
             <SelectValue placeholder="Select type" />
           </SelectTrigger>
-          <SelectContent className="bg-white text-black">
+          <SelectContent>
             <SelectItem value="EXPENSE">Expense</SelectItem>
             <SelectItem value="INCOME">Income</SelectItem>
           </SelectContent>
@@ -179,7 +180,7 @@ const AddTransactionForm = ({
             <SelectTrigger>
               <SelectValue placeholder="Select account" />
             </SelectTrigger>
-            <SelectContent className="bg-white text-black">
+            <SelectContent>
               {accounts.map((account) => (
                 <SelectItem key={account.id} value={account.id}>
                   {account.name} (${parseFloat(account.balance).toFixed(2)})
@@ -211,7 +212,7 @@ const AddTransactionForm = ({
           <SelectTrigger>
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
-          <SelectContent className="bg-white text-black">
+          <SelectContent>
             {filteredCategories.map((category) => (
               <SelectItem key={category.id} value={category.id}>
                 {category.name}
@@ -237,7 +238,7 @@ const AddTransactionForm = ({
               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0 bg-white" align="start">
+          <PopoverContent className="w-auto p-0" align="start">
             <Calendar
               mode="single"
               selected={date}
@@ -246,12 +247,6 @@ const AddTransactionForm = ({
                 date > new Date() || date < new Date("1900-01-01")
               }
               initialFocus
-              modifiersStyles={{
-                selected: {
-                  backgroundColor: "black",
-                  color: "white",
-                },
-              }}
             />
           </PopoverContent>
         </Popover>
@@ -270,7 +265,7 @@ const AddTransactionForm = ({
       </div>
 
       {/* Recurring Toggle */}
-      <div className="flex items-center justify-between rounded-lg border p-3">
+      <div className="flex flex-row items-center justify-between rounded-lg border p-4">
         <div className="space-y-0.5">
           <label className="text-base font-medium">Recurring Transaction</label>
           <div className="text-sm text-muted-foreground">
