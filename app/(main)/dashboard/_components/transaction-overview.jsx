@@ -91,7 +91,7 @@ export function DashboardOverview({ accounts, transactions }) {
             <SelectTrigger className="w-[140px]">
               <SelectValue placeholder="Select account" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white text-black">
               {accounts.map((account) => (
                 <SelectItem key={account.id} value={account.id}>
                   {account.name}

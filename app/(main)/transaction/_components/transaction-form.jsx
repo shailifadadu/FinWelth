@@ -146,7 +146,7 @@ const AddTransactionForm = ({
           <SelectTrigger>
             <SelectValue placeholder="Select type" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white text-black">
             <SelectItem value="EXPENSE">Expense</SelectItem>
             <SelectItem value="INCOME">Income</SelectItem>
           </SelectContent>
@@ -180,7 +180,7 @@ const AddTransactionForm = ({
             <SelectTrigger>
               <SelectValue placeholder="Select account" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white text-black">
               {accounts.map((account) => (
                 <SelectItem key={account.id} value={account.id}>
                   {account.name} (${parseFloat(account.balance).toFixed(2)})
@@ -189,7 +189,7 @@ const AddTransactionForm = ({
               <CreateAccountDrawer>
                 <Button
                   variant="ghost"
-                  className="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
+                  className="relative cursor-pointer flex w-full select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none bg-black text-white hover:bg-gray-300 hover:text-accent-foreground"
                 >
                   Create Account
                 </Button>
@@ -212,7 +212,7 @@ const AddTransactionForm = ({
           <SelectTrigger>
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white text-black">
             {filteredCategories.map((category) => (
               <SelectItem key={category.id} value={category.id}>
                 {category.name}
@@ -238,7 +238,7 @@ const AddTransactionForm = ({
               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-auto p-0 bg-white" align="start">
             <Calendar
               mode="single"
               selected={date}
@@ -247,6 +247,14 @@ const AddTransactionForm = ({
                 date > new Date() || date < new Date("1900-01-01")
               }
               initialFocus
+              modifiers={{ selected: [date] }}
+              modifiersStyles={{
+                selected: {
+                  backgroundColor: "black",
+                  color: "white",
+                  borderRadius: "6px",
+                },
+              }}
             />
           </PopoverContent>
         </Popover>
@@ -289,7 +297,7 @@ const AddTransactionForm = ({
             <SelectTrigger>
               <SelectValue placeholder="Select interval" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white text-black">
               <SelectItem value="DAILY">Daily</SelectItem>
               <SelectItem value="WEEKLY">Weekly</SelectItem>
               <SelectItem value="MONTHLY">Monthly</SelectItem>
