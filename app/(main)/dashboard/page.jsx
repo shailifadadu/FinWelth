@@ -21,7 +21,7 @@ async function DashboardPage() {
   }
 
   //Fetch the data
-  const transaction = await getDashboardData();
+  const transactions = await getDashboardData();
 
   return (
     <div className="space-y-8">
