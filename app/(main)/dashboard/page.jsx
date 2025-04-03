@@ -6,6 +6,7 @@ import React from "react";
 import AccountCard from "./_components/account-card";
 import { BudgetProgress } from "./_components/budget-progress";
 import { getCurrentBudget } from "@/actions/budget";
+import { DashboardOverview } from "./_components/transaction-overview";
 
 async function DashboardPage() {
   //fetch the accounts from server actions(so we will not use useFetch hook bcoz it only runs on client side)

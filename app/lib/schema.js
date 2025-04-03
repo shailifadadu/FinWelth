@@ -21,7 +21,7 @@ export const transactionSchema = z
     accountId: z.string().min(1, "Account is required"),
     category: z.string().min(1, "Category is required"),
     isRecurring: z.boolean().default(false),
-    RecurringInterval: z
+    recurringInterval: z
       .enum(["DAILY", "WEEKLY", "MONTHLY", "YEARLY"])
       .optional(),
   })

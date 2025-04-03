@@ -89,7 +89,7 @@ export async function createTransaction(data) {
         where: { id: data.accountId },
         data: {
           balance: {
-            newBalance,
+            set: newBalance,
           },
         },
       });
@@ -254,7 +254,7 @@ export async function updateTransaction(id, data) {
 
     const netBalanceChange = newBalanceChange - oldBalanceChange;
 
-    // Update transaction and account balance in a transaction
+    // Update transaction and account balance in a prisma transaction
     const transaction = await db.$transaction(async (tx) => {
       const updated = await tx.transaction.update({
         where: {
