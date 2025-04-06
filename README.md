@@ -36,7 +36,7 @@
 
 ### 🤖 AI & Automation
 
-- **Google Gemini API** (for receipt scanning)
+- **Google Gemini API**
 - **Inngest** (background jobs & workflows)
 - **Arcjet** (rate limiting & protection)
 
