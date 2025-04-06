@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">💰 FinWelth</h1>
+<p align="center"><i>A Smart, AI-Powered Personal Finance Assistant</i></p>
 
-## Getting Started
+## 🔎 Why Finwelth?
 
-First, run the development server:
+> **Finwelth** is your all-in-one personal finance platform that blends modern UI, smart analytics, and cutting-edge AI to help you manage your finances efficiently.  
+> Track your income, scan receipts using AI, receive automatic financial summaries via email, and gain complete control over your budget – all from one intuitive dashboard.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔗 **Try it now** → [https://finwelth.vercel.app](https://finwelth.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+| 💡 Feature                     | 🚀 Description                                                         |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| 🔐 **Secure Authentication**   | Easily sign up and sign in securely with **Clerk**.                    |
+| 📊 **Interactive Dashboard**   | View income, expenses, and savings at a glance.                        |
+| 🤖 **AI Receipt Scanner**      | Extract expense data from receipts using **Gemini API**.               |
+| 📬 **Automated Email Reports** | Get monthly reports and alerts in your inbox via **Inngest + Resend**. |
+| 🎯 **Smart Budgeting**         | Set limits and track financial goals effortlessly.                     |
+| 📈 **Real-time Charts**        | Visualize financial data through sleek, dynamic analytics.             |
+| 🛡️ **Rate Limiting**           | Protected and reliable using **Arcjet**.                               |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Tech Stack
 
-## Learn More
+### 🎨 Frontend
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**
+- **Tailwind CSS** + **shadcn/ui**
+- **Vercel Hosting**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ⚡ Backend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Supabase** (PostgreSQL)
+- **Clerk Authentication**
+- **Resend** + **React Email**
 
-## Deploy on Vercel
+### 🤖 AI & Automation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Google Gemini API** (for receipt scanning)
+- **Inngest** (background jobs & workflows)
+- **Arcjet** (rate limiting & protection)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+<h3 align="center">⭐️ Don't forget to star this repo if you find it useful & cool! ⭐️
+<br>Let’s make finance smarter, together. 🚀</h3>
